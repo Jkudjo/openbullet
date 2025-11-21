@@ -1,38 +1,129 @@
-# OpenBullet
+# OpenBullet 2
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ubdcnn38uanaoqic?svg=true)](https://ci.appveyor.com/project/openbullet/openbullet)
+![Logo](https://i.imgur.com/sToEkJC.png)
 
-## $\mathbf{\color{red} IMPORTANT\space \space NOTICE}$
+OpenBullet 2 is a cross-platform automation suite powered by .NET 8. It allows to perform requests towards a target webapp and offers a lot of tools to work with the results. This software can be used for **scraping** and **parsing data**, automated **penetration testing** and much more.
 
-OpenBullet 1 has reached the end of its life, no more support will be provided for it. Please consider switching to [OpenBullet 2](https://github.com/openbullet/OpenBullet2) as it will be kept up to date and offers a lot more features.
+## ⚠️ Disclaimer
 
----
+Performing (D)DoS or credential stuffing attacks on sites you do not have permission to test is **illegal!** The developer will not be held responsible for improper use of this software.
 
-Link to the [Official Forum](https://discourse.openbullet.dev/)
+## 🚀 What's New in OpenBullet 2
 
-The Plugin System was released with version 1.2.0. You can find a [sample Plugin](https://github.com/openbullet/openbullet-plugin) with fully documented code that you can use as a basis to develop your own plugins!
+OpenBullet 2 is a complete rewrite and upgrade from OpenBullet 1, featuring:
 
----
+- **Cross-platform**: Runs on Windows, Linux, and macOS (.NET 8)
+- **Modern Architecture**: Async/await patterns, better performance
+- **Web UI**: Browser-based interface accessible from anywhere
+- **Native Client**: Windows desktop application (optional)
+- **REST API**: Programmatic access to all features
+- **Guests System**: Multi-user support with permissions
+- **Remote Configs**: Cloud-based configuration management
+- **Better Plugins**: Enhanced plugin system
+- **Docker Support**: Containerized deployment
+- **Improved Performance**: Better multithreading and resource management
 
-OpenBullet is a webtesting suite that allows to perform requests towards a target webapp and offers a lot of tools to work with the results. This software can be used for **scraping** and **parsing data**, automated **pentesting**, unit testing through **selenium** and much more.
+## 📚 Documentation
 
-**IMPORTANT!** Performing (D)DoS attacks or credential stuffing on sites you do not own (or you do not have permission to test) is **illegal!** The developer will not be held responsible for improper use of this software.
+For detailed information on how to get started with **OpenBullet 2**, check out the [documentation](https://docs.openbullet.dev).
 
-![Runner](https://i.imgur.com/vb8OUfr.jpg)
+[![Docs](https://img.shields.io/badge/Docs-Read_the_Docs-2292A4.svg)](https://docs.openbullet.dev)
 
-[Here](https://openbullet.github.io/ob1) you can find the complete documentation for **usage**, **config making** and the **RuriLib API**.
+## 🌐 Community
 
-The **OpenBullet API** was released. It can be used to host configs remotely on your server and have OpenBullet download them upon Rescan. It's very useful to always have updated configs between different computers or people. You can learn more about it [here](https://openbullet.github.io/ob1/remote.html).
+Join our community to discuss and share your experiences with **OpenBullet 2**.
 
-Found a bug? [Create an issue!](https://help.github.com/en/articles/creating-an-issue)
+[![Forum](https://img.shields.io/badge/Forum-Join_the_community-2292A4.svg)](https://discourse.openbullet.dev/)
 
-## How to build
+## 📦 Quick Start
 
-0. Make sure you have installed the .NET framework (dev) 4.7.2.
-1. **Clone this repository** and open the solution file with Visual Studio.
-2. Switch to **Release** mode for a much cleaner output.
-3. **Build** the solution (Visual Studio will fetch all the missing nuget packages).
-4. You can find the executables inside the folders OpenBullet/bin/Release and OpenBulletCLI/bin/Release.
+### Prerequisites
+
+- .NET 8 SDK ([Download](https://dotnet.microsoft.com/download/dotnet/8.0))
+- Node.js 18+ (for web client, if building from source)
+
+### Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/Jkudjo/OpenBullet2.git
+cd OpenBullet2
+
+# Restore dependencies
+dotnet restore
+
+# Build the solution
+dotnet build OpenBullet2.sln --configuration Release
+
+# Run the web server
+cd OpenBullet2.Web
+dotnet run
+```
+
+The web interface will be available at `http://localhost:5000` (or the port shown in the console).
+
+### Docker Deployment
+
+```bash
+# Build and run with Docker Compose
+docker-compose up -d
+
+# Or build manually
+docker build -t openbullet2 .
+docker run -p 5000:5000 openbullet2
+```
+
+## 📸 Screenshots
+
+**Web Client**
+
+![Web Client](https://github.com/openbullet/OpenBullet2-Private/assets/48930622/4c009929-9254-4180-9c37-0b3a53efdbd3)
+
+**Native Client** (Windows only)
+
+![Native Client](https://user-images.githubusercontent.com/48930622/151500974-5cb7a9fd-766b-44ab-b32e-f7d623c0e7dd.png)
+
+## 🏗️ Project Structure
+
+```
+OpenBullet2/
+├── RuriLib/                    # Core automation library
+├── RuriLib.Http/              # HTTP client functionality
+├── RuriLib.Proxies/            # Proxy management
+├── RuriLib.Parallelization/    # Parallel execution engine
+├── OpenBullet2.Core/           # Core application logic
+├── OpenBullet2.Web/            # Web server (Blazor)
+├── OpenBullet2.Console/        # CLI application
+├── OpenBullet2.Native/         # Windows native client
+└── openbullet2-web-client/     # Web client frontend
+```
+
+## 🔄 Migration from OpenBullet 1
+
+OpenBullet 2 can import `.loli` configuration files from OpenBullet 1. Simply import your existing configs - they will be automatically converted to the new `.opk` format.
+
+**Note**: Some specific blocks or settings may not be fully compatible. Test your configs after migration.
+
+## 🐛 Report Issues
+
+Found a bug or have a feature request? Please help us improve by submitting an issue.
+
+[![Open an issue](https://img.shields.io/badge/Bug-Report_a_bug-E74C3C.svg)](https://github.com/openbullet/OpenBullet2/issues/new?template=bug-report.yaml&title=%5BBug%5D%3A+) [![Request a feature](https://img.shields.io/badge/Feature-Request_a_feature-2292A4.svg)](https://github.com/openbullet/OpenBullet2/issues/new?template=feature_request.md&title=%5BREQUEST%5D)
+
+## 📊 Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/c51394480e5e3da9259cae343f80dd1c53a8b263.svg "Repobeats analytics image")
+
+## 📖 Additional Documentation
+
+- **[USAGE_GUIDE.md](USAGE_GUIDE.md)**: Comprehensive usage guide (OpenBullet 1, still relevant)
+- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Technical architecture overview
+- **[QUICK_START.md](QUICK_START.md)**: Quick start tutorial
+- **[REPOSITORY_OVERVIEW.md](REPOSITORY_OVERVIEW.md)**: Repository overview
+
+## 🔧 Legacy Code
+
+OpenBullet 1 code has been moved to the `legacy/` directory for reference. It is no longer maintained but may be useful for understanding the evolution of the project.
 
 ## License
 
@@ -41,13 +132,21 @@ This software is licensed under the MIT License.
 ## Donate
 
 If you like this software, consider making a donation to the developer. Thank you!
-
 - BTC: **39yMkox6pP8tnSC7rZ5EM4nUUHgPbg1fKM**
+- ETH: **0xc22116Bcf6c30977bEdFcc03C5B6aAe90B0fD179**
+- BCH: **qq02mrtdp454g2zdu534ndpu7jgcr3tvavyzs60m3p**
 
 ## Credits
 
-I want to thank all the community for their inputs that shaped OpenBullet into what it is now, and my gratitude goes towards **demiurgo** and **meinname**, who spent a lot of time helping me test and debug the Beta builds.
+I want to thank all the community for their inputs that shaped OpenBullet into what it is now, and my gratitude goes especially towards my collaborators **demiurgo** and **meinname**.
 
 ## Contact
 
-I am not on discord / telegram, anyone on there who claims to be me is a fake. If you need to contact me for any reason you can send me an email here: `ruri [at] openbullet (dot) dev`. I don't check it very often so be patient please.
+The best way to contact me is through the [official forum](https://discourse.openbullet.dev/u/Ruri). I'm not on discord / telegram.
+If you need to contact me via mail for any reason you can send me a message here: `ruri [at] openbullet [dot] dev`. I don't check it very often so be patient please.
+
+## About
+
+OpenBullet reinvented - Modern, cross-platform web automation suite.
+
+**Source**: Based on [OpenBullet2](https://github.com/Jkudjo/OpenBullet2) by Jkudjo
